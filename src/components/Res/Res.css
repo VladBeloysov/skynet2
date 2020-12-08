@@ -1,0 +1,22 @@
+.res {
+    display: flex;
+    background-color: #2ecb5a;
+    border-radius: 3px;
+    color: #fff;
+    padding: 0 20px;
+    height: 60px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.res__title {
+    font-size: 28px;
+    line-height: 28px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.res__sum {
+    font-size: 28px;
+    line-height: 28px;
+}
