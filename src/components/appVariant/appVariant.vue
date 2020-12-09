@@ -10,12 +10,15 @@
 			</section>
 			<section class="item__right">
 				<app-options
-					v-if="options.length > 0"
-					:options="options"
+					v-for="(option, index) in options"
+					:option="option"
+					:key="index"
+					:index="index"
 				></app-options>
 				<app-select
-					v-if="select.length > 0"
-					:select="select"
+					v-for="sel in select"
+					:select="sel"
+					:key="sel.title"
 				></app-select>
 				<button class="item__btn">Выбрать</button>
 			</section>
