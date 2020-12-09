@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import './Res.css';
+import './appRes.css';
 export default {
 }
 </script>

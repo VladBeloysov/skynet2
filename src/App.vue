@@ -1,19 +1,30 @@
 <template>
   <div id="app">
 	<div class="wrapper">
-		<Step></Step>
-		<Res></Res>
+		<app-step
+			v-for="step in jsonData"
+			:key="step.title"
+			:title="step.title"
+			:variants="step.variants"
+		>
+		</app-step>
+		<app-res></app-res>
 	</div>
   </div>
 </template>
 
 <script>
-import Step from './components/Step/Step'
-import Res from './components/Res/Res'
+import appStep from './components/appStep/appStep'
+import appRes from './components/appRes/appRes'
 import './main.css'
+import json from './data.json'
 export default {
-    name: 'App',
-    components: {Step, Res},
+	data() {
+        return {
+            jsonData: json
+        }
+	},
+	components: {appStep, appRes}
 }
 </script>
 <style>
