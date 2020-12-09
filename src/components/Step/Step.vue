@@ -13,12 +13,14 @@
 							Бесплатная настройка оборудования (роутер, приставка)\nДемонстрация работы ЛК пользователю, помощь при оплате банковской картой</p>
 					</section>
 					<section class="item__right">
-						<div class="item__wrap-checkbox">
-							<input class="item__checkbox" type="checkbox" name="option1" value="Протяжка кабеля">
-						</div>
-						<div class="item__wrap-checkbox">
-							<input class="item__checkbox" type="checkbox" name="option2" value="8 жил">
-						</div>
+						<input class="item__checkbox" type="checkbox" name="option1" id="option1" value="Протяжка кабеля">
+						<label for="option1" class="item__checkbox-label">
+							<div class="item__checkbox-text">Протяжка кабеля</div>
+						</label>
+						<input class="item__checkbox" type="checkbox" name="option2" id="option2" value="8 жил">
+						<label for="option2" class="item__checkbox-label">
+							<div class="item__checkbox-text">8 жил</div>
+						</label>
 						<button class="item__btn">Выбрано</button>
 					</section>
 				</div>
@@ -34,12 +36,11 @@
 							Подключение розеток, разводка кабеля по квартире, предоставление необходимого количества патч кордов.</p>
 					</section>
 					<section class="item__right">
-						<div class="item__wrap-checkbox">
-							<input class="item__checkbox" type="checkbox" name="option1" value="Протяжка кабеля">
-						</div>
-						<div class="item__wrap-checkbox">
-							<input class="item__checkbox" type="checkbox" name="option2" value="8 жил">
-						</div>
+						<select class="item__select">
+							<option>Коттедж</option>
+							<option>1 комната</option>
+							<option>2 комнаты</option>
+						</select>
 						<button class="item__btn">Выбрано</button>
 					</section>
 				</div>
