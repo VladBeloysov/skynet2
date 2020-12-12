@@ -17,7 +17,15 @@
 				<label :for="'step'+stepIndex+'var'+index" class="item">
 					<div class="item__header">
 						<div class="item__title">{{ variant.title }}</div>
-						<div class="item__price">{{ variant.price_default }} ₽</div>
+						<div class="item__price">
+							{{
+								(variants[index].options.length > 0) ?
+									sumChecked :
+								(variants[index].select.length > 0) ?
+									select :
+									variant.price_default
+							}} ₽
+						</div>
 					</div>
 					<div class="item__content">
 						<section class="item__left">
@@ -29,11 +37,15 @@
 								:option="option"
 								:key="index2"
 								:index="index2"
+								:value="option.price"
+								:variantKey="index"
+								v-model="checked"
 							></app-options>
 							<app-select
-								v-for="sel in variant.select"
+								v-for="(sel, index3) in variant.select"
 								:select="sel"
-								:key="sel.title"
+								:key="index3"
+								v-model="select"
 							></app-select>
 							<div class="item__btn">Выбрать</div>
 						</section>
@@ -51,9 +63,25 @@ import AppOptions from "@/components/appOptions/appOptions";
 export default {
 	components: { AppOptions, AppSelect },
 	props: ['title', 'variants', 'stepIndex', 'price'],
+	data() {
+		return {
+			checked: [],
+			select: 0,
+			sumChecked: 0
+		}
+	},
 	methods: {
 		clickVariant(currentPrice, stepIndex) {
 			this.$emit('updateApp', { index: stepIndex, price: currentPrice})
+		}
+	},
+	watch: {
+		checked() {
+			this.sumChecked=0;
+			for (var i=0; i<this.checked.length; i++) {
+				this.sumChecked+=this.checked[i];
+			}
+			return this.sumChecked;
 		}
 	}
 }
