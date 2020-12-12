@@ -44,7 +44,7 @@ export default {
 					this.sum += 0
 				}
 			}
-		}
+		},
 	},
 	components: {appStep, appRes}
 }

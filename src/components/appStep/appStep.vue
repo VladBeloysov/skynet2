@@ -64,7 +64,7 @@ import AppSelect from "@/components/appSelect/appSelect";
 import AppOptions from "@/components/appOptions/appOptions";
 export default {
 	components: { AppOptions, AppSelect },
-	props: ['title', 'variants', 'stepIndex', 'price'],
+	props: ['title', 'variants', 'stepIndex', 'price', 'activeStep'],
 	data() {
 		return {
 			checked: [],
@@ -72,9 +72,14 @@ export default {
 			sumChecked: 0
 		}
 	},
+	model: {
+		prop: 'activeStep',
+		event: 'changeActive',
+	},
 	methods: {
 		clickVariant(currentPrice, stepIndex) {
-			this.$emit('updateApp', { index: stepIndex, price: currentPrice})
+			this.$emit('updateApp', { index: stepIndex, price: currentPrice});
+			this.activeStep = true;
 		}
 	},
 	watch: {
