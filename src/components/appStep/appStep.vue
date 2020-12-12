@@ -9,21 +9,23 @@
 			>
 				<input
 					class="item__variantRadio"
-					@click="clickVariant(variant.price_default, stepIndex)"
 					type="radio"
 					:name="'variant'+stepIndex"
 					:id="'step'+stepIndex+'var'+index"
-					:value="variant.price_default">
-				<label :for="'step'+stepIndex+'var'+index" class="item">
+					:value="(variants[index].options.length > 0) ?sumChecked :(variants[index].select.length > 0) ?select :variant.price_default">
+				<label
+					@click="clickVariant((variants[index].options.length > 0) ?sumChecked :(variants[index].select.length > 0) ?select :variant.price_default, stepIndex)"
+					:for="'step'+stepIndex+'var'+index"
+					class="item">
 					<div class="item__header">
 						<div class="item__title">{{ variant.title }}</div>
 						<div class="item__price">
 							{{
 								(variants[index].options.length > 0) ?
 									sumChecked :
-								(variants[index].select.length > 0) ?
-									select :
-									variant.price_default
+									(variants[index].select.length > 0) ?
+										select :
+										variant.price_default
 							}} ₽
 						</div>
 					</div>
